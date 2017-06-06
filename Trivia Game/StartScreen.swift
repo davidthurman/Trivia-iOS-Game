@@ -8,7 +8,11 @@
 
 import UIKit
 
-class StartScreen: UIViewController {
+class StartScreen: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    let categories = ["Any Category","General Knowledge", "Books", "Film", "Music", "Musicals and Theatres", "Television", "Video Games", "Board Games", "Science and Nature", "Computers", "Mathematics", "Mythology", "Sports", "Geography", "History", "Politics", "Art", "Celebrities", "Animals", "Vehicles", "Comics", "Gadgets", "Japanese Anime and Manga", "Cartoon and Animations"]
+    
+    @IBOutlet var categoriesPicker: UIPickerView!
 
     @IBOutlet var difficultyPicker: UISegmentedControl!
 
@@ -16,6 +20,8 @@ class StartScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        categoriesPicker.delegate = self
+        categoriesPicker.dataSource = self
         // Do any additional setup after loading the view, typically from a nib.
         difficultyPicker.addTarget(self, action: #selector(difficultyChanged), for: .touchUpInside)
     }
@@ -30,8 +36,15 @@ class StartScreen: UIViewController {
             
             if let mainGameVC: MainGame = segue.destination as? MainGame {
                 mainGameVC.amount = "&amount=10"
-                mainGameVC.category = ""
-                mainGameVC.difficulty = ""
+                print(categoriesPicker.selectedRow(inComponent: 0))
+                if categoriesPicker.selectedRow(inComponent: 0) == 0 {
+                    mainGameVC.category = ""
+                }
+                else {
+                    mainGameVC.category = "&category=" + String(categoriesPicker.selectedRow(inComponent: 0) + 8)
+                }
+                
+                mainGameVC.difficulty = difficulty
             }
             
         }
@@ -48,6 +61,22 @@ class StartScreen: UIViewController {
         default:
             difficulty = ""
         }
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categories.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categories[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
     }
 
 }

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F7AD3AE109C9DE372C8D751F14E93568B69DD2B7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "94BF7D52B087C878544A9B72851D1F855255A1FB" : 9223372036854775807,
+    "F7AD3AE109C9DE372C8D751F14E93568B69DD2B7" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E7A7ABC5-916F-434A-8914-3ED79408679B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "94BF7D52B087C878544A9B72851D1F855255A1FB" : "..\/Desktop\/IOS\/Hometown%20App",
+    "F7AD3AE109C9DE372C8D751F14E93568B69DD2B7" : "Trivia%20Game\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Trivia Game",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Trivia Game.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/davidthurman\/Dvids-Hometown-iOS-App.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "94BF7D52B087C878544A9B72851D1F855255A1FB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/davidthurman\/Trivia-iOS-Game.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F7AD3AE109C9DE372C8D751F14E93568B69DD2B7"
+    }
+  ]
+}

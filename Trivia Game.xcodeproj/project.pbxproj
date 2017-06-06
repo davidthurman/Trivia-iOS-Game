@@ -18,6 +18,7 @@
 		322681E51EE3463800216C16 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 322681E21EE3463400216C16 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		322681E81EE3507700216C16 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322681E71EE3507700216C16 /* Question.swift */; };
 		322681EA1EE3527E00216C16 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322681E91EE3527E00216C16 /* SwiftyJSON.swift */; };
+		32B9DD751EE6428B00907DC6 /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B9DD741EE6428B00907DC6 /* SwiftSpinner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		322681E21EE3463400216C16 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		322681E71EE3507700216C16 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		322681E91EE3527E00216C16 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = "../../../Desktop/IOS/Hometown App/Hometown App/SwiftyJSON.swift"; sourceTree = "<group>"; };
+		32B9DD741EE6428B00907DC6 /* SwiftSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftSpinner.swift; path = "../../../Downloads/SwiftSpinner-master/SwiftSpinner/SwiftSpinner.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 		322681BE1EE3316E00216C16 /* Trivia Game */ = {
 			isa = PBXGroup;
 			children = (
+				32B9DD741EE6428B00907DC6 /* SwiftSpinner.swift */,
 				322681BF1EE3316F00216C16 /* AppDelegate.swift */,
 				322681C11EE3316F00216C16 /* StartScreen.swift */,
 				322681E91EE3527E00216C16 /* SwiftyJSON.swift */,
@@ -242,6 +245,7 @@
 				322681C21EE3316F00216C16 /* StartScreen.swift in Sources */,
 				322681EA1EE3527E00216C16 /* SwiftyJSON.swift in Sources */,
 				322681C01EE3316F00216C16 /* AppDelegate.swift in Sources */,
+				32B9DD751EE6428B00907DC6 /* SwiftSpinner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

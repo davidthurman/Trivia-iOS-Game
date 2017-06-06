@@ -50,6 +50,7 @@ class MainGame: UIViewController {
     }
     
     func fetchQuestions(){
+        SwiftSpinner.show("Fetching Questions...")
         print("https://opentdb.com/api.php?" + amount +  category + difficulty)
         Alamofire.request("https://opentdb.com/api.php?" + amount +  category + difficulty).responseJSON { response in
             if let results = response.result.value {
@@ -61,26 +62,26 @@ class MainGame: UIViewController {
                 self.populateQuestion()
             }
         }
+        SwiftSpinner.hide()
     }
     
     func populateQuestion(){
         if index < questions.count {
+            questions[index].question = formatStrings(myString: questions[index].question)
             questionLabel.text = questions[index].question
             
             
             if (questions[index].type == "multiple"){
                 
-                print(index)
-                print(questions.count)
-                
                 var randomInt: Int = Int(arc4random_uniform(4))
-                
+                questions[index].correctAnswer = formatStrings(myString: questions[index].correctAnswer)
                 buttons[randomInt].setTitle(questions[index].correctAnswer, for: .normal)
                 correctButton = randomInt
                 var incorrectAnswersIndex = 0
                 
                 for count in 0...3 {
                     if count != randomInt {
+                        questions[index].incorrectAnswers[incorrectAnswersIndex] = formatStrings(myString: questions[index].incorrectAnswers[incorrectAnswersIndex])
                         buttons[count].setTitle(questions[index].incorrectAnswers[incorrectAnswersIndex], for: .normal)
                         incorrectAnswersIndex = incorrectAnswersIndex + 1
                     }
@@ -142,6 +143,15 @@ class MainGame: UIViewController {
     func reset() {
         index = 0
         score = 0
+        questions = []
+    }
+    
+    func formatStrings(myString: String) -> String{
+        var newString = myString.replacingOccurrences(of: "&#039;", with: "'")
+        newString = myString.replacingOccurrences(of: "&amp;", with: "&")
+        newString = myString.replacingOccurrences(of: "&quot;", with: "\"")
+        newString = myString.replacingOccurrences(of: "&rsquo;", with: "'")
+        return newString
     }
     
 }

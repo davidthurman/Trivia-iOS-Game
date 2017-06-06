@@ -86,6 +86,7 @@
                         <color key="backgroundColor" red="0.69803921568627447" green="0.85882352941176465" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="categoriesPicker" destination="Lej-EB-rek" id="qh7-as-YmR"/>
                         <outlet property="difficultyPicker" destination="Q3a-lR-e0P" id="aMw-WJ-2Mu"/>
                     </connections>
                 </viewController>
