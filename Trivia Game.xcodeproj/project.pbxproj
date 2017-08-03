@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		320F07DB1EFCA6EF001F0FC4 /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 320F07DA1EFCA6EF001F0FC4 /* backButton.png */; };
+		320F07DD1EFCA816001F0FC4 /* muted.png in Resources */ = {isa = PBXBuildFile; fileRef = 320F07DC1EFCA816001F0FC4 /* muted.png */; };
+		320F07DF1EFCA81B001F0FC4 /* sound.png in Resources */ = {isa = PBXBuildFile; fileRef = 320F07DE1EFCA81B001F0FC4 /* sound.png */; };
 		322681C01EE3316F00216C16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322681BF1EE3316F00216C16 /* AppDelegate.swift */; };
 		322681C21EE3316F00216C16 /* StartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322681C11EE3316F00216C16 /* StartScreen.swift */; };
 		322681C51EE3316F00216C16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 322681C31EE3316F00216C16 /* Main.storyboard */; };
@@ -14,11 +17,15 @@
 		322681CA1EE3316F00216C16 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 322681C81EE3316F00216C16 /* LaunchScreen.storyboard */; };
 		322681D51EE3316F00216C16 /* Trivia_GameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322681D41EE3316F00216C16 /* Trivia_GameUITests.swift */; };
 		322681E01EE340EE00216C16 /* MainGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322681DF1EE340EE00216C16 /* MainGame.swift */; };
-		322681E31EE3463400216C16 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322681E21EE3463400216C16 /* Alamofire.framework */; };
-		322681E51EE3463800216C16 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 322681E21EE3463400216C16 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		322681E81EE3507700216C16 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322681E71EE3507700216C16 /* Question.swift */; };
 		322681EA1EE3527E00216C16 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322681E91EE3527E00216C16 /* SwiftyJSON.swift */; };
+		327636521F0954DE009E1E12 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322681E21EE3463400216C16 /* Alamofire.framework */; };
+		32A94CC71EFC8AF8006968ED /* dailyTriviaLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A94CC61EFC8AF8006968ED /* dailyTriviaLogo.png */; };
+		32AEAAE41EE7AE0F00B08ACC /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AEAAE31EE7AE0F00B08ACC /* CategoryController.swift */; };
+		32AEAAE61EE7B1F500B08ACC /* NumberOfQuestionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AEAAE51EE7B1F500B08ACC /* NumberOfQuestionsController.swift */; };
 		32B9DD751EE6428B00907DC6 /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B9DD741EE6428B00907DC6 /* SwiftSpinner.swift */; };
+		32D22D711EF0DD2800A3DA1F /* correct_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 32D22D701EF0DD2800A3DA1F /* correct_sound.mp3 */; };
+		32D22D731EF0DD3D00A3DA1F /* incorrect_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 32D22D721EF0DD3D00A3DA1F /* incorrect_sound.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,21 +38,10 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		322681E61EE3463800216C16 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				322681E51EE3463800216C16 /* Alamofire.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		320F07DA1EFCA6EF001F0FC4 /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backButton.png; path = ../../../Desktop/backButton.png; sourceTree = "<group>"; };
+		320F07DC1EFCA816001F0FC4 /* muted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = muted.png; path = ../../../Downloads/muted.png; sourceTree = "<group>"; };
+		320F07DE1EFCA81B001F0FC4 /* sound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sound.png; path = ../../../Downloads/sound.png; sourceTree = "<group>"; };
 		322681BC1EE3316E00216C16 /* Trivia Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trivia Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		322681BF1EE3316F00216C16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		322681C11EE3316F00216C16 /* StartScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreen.swift; sourceTree = "<group>"; };
@@ -60,7 +56,12 @@
 		322681E21EE3463400216C16 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		322681E71EE3507700216C16 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		322681E91EE3527E00216C16 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = "../../../Desktop/IOS/Hometown App/Hometown App/SwiftyJSON.swift"; sourceTree = "<group>"; };
+		32A94CC61EFC8AF8006968ED /* dailyTriviaLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dailyTriviaLogo.png; path = ../../../Desktop/dailyTriviaLogo.png; sourceTree = "<group>"; };
+		32AEAAE31EE7AE0F00B08ACC /* CategoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
+		32AEAAE51EE7B1F500B08ACC /* NumberOfQuestionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberOfQuestionsController.swift; sourceTree = "<group>"; };
 		32B9DD741EE6428B00907DC6 /* SwiftSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftSpinner.swift; path = "../../../Downloads/SwiftSpinner-master/SwiftSpinner/SwiftSpinner.swift"; sourceTree = "<group>"; };
+		32D22D701EF0DD2800A3DA1F /* correct_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = correct_sound.mp3; path = ../../../Downloads/correct_sound.mp3; sourceTree = "<group>"; };
+		32D22D721EF0DD3D00A3DA1F /* incorrect_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = incorrect_sound.mp3; path = ../../../Downloads/incorrect_sound.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				322681E31EE3463400216C16 /* Alamofire.framework in Frameworks */,
+				327636521F0954DE009E1E12 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +105,12 @@
 		322681BE1EE3316E00216C16 /* Trivia Game */ = {
 			isa = PBXGroup;
 			children = (
+				32A94CC61EFC8AF8006968ED /* dailyTriviaLogo.png */,
+				320F07DA1EFCA6EF001F0FC4 /* backButton.png */,
+				320F07DC1EFCA816001F0FC4 /* muted.png */,
+				320F07DE1EFCA81B001F0FC4 /* sound.png */,
+				32D22D701EF0DD2800A3DA1F /* correct_sound.mp3 */,
+				32D22D721EF0DD3D00A3DA1F /* incorrect_sound.mp3 */,
 				32B9DD741EE6428B00907DC6 /* SwiftSpinner.swift */,
 				322681BF1EE3316F00216C16 /* AppDelegate.swift */,
 				322681C11EE3316F00216C16 /* StartScreen.swift */,
@@ -114,6 +121,8 @@
 				322681C61EE3316F00216C16 /* Assets.xcassets */,
 				322681C81EE3316F00216C16 /* LaunchScreen.storyboard */,
 				322681CB1EE3316F00216C16 /* Info.plist */,
+				32AEAAE31EE7AE0F00B08ACC /* CategoryController.swift */,
+				32AEAAE51EE7B1F500B08ACC /* NumberOfQuestionsController.swift */,
 			);
 			path = "Trivia Game";
 			sourceTree = "<group>";
@@ -145,7 +154,7 @@
 				322681B81EE3316E00216C16 /* Sources */,
 				322681B91EE3316E00216C16 /* Frameworks */,
 				322681BA1EE3316E00216C16 /* Resources */,
-				322681E61EE3463800216C16 /* Embed Frameworks */,
+				32994CB01EFE322D0099E398 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -221,8 +230,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				322681CA1EE3316F00216C16 /* LaunchScreen.storyboard in Resources */,
+				320F07DF1EFCA81B001F0FC4 /* sound.png in Resources */,
+				320F07DB1EFCA6EF001F0FC4 /* backButton.png in Resources */,
+				32D22D711EF0DD2800A3DA1F /* correct_sound.mp3 in Resources */,
+				320F07DD1EFCA816001F0FC4 /* muted.png in Resources */,
 				322681C71EE3316F00216C16 /* Assets.xcassets in Resources */,
+				32A94CC71EFC8AF8006968ED /* dailyTriviaLogo.png in Resources */,
 				322681C51EE3316F00216C16 /* Main.storyboard in Resources */,
+				32D22D731EF0DD3D00A3DA1F /* incorrect_sound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +250,24 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		32994CB01EFE322D0099E398 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n\nAPP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		322681B81EE3316E00216C16 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -243,6 +276,8 @@
 				322681E01EE340EE00216C16 /* MainGame.swift in Sources */,
 				322681E81EE3507700216C16 /* Question.swift in Sources */,
 				322681C21EE3316F00216C16 /* StartScreen.swift in Sources */,
+				32AEAAE61EE7B1F500B08ACC /* NumberOfQuestionsController.swift in Sources */,
+				32AEAAE41EE7AE0F00B08ACC /* CategoryController.swift in Sources */,
 				322681EA1EE3527E00216C16 /* SwiftyJSON.swift in Sources */,
 				322681C01EE3316F00216C16 /* AppDelegate.swift in Sources */,
 				32B9DD751EE6428B00907DC6 /* SwiftSpinner.swift in Sources */,
@@ -388,10 +423,12 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Trivia Game/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.DavidThurman.Trivia-Game";
+				PRODUCT_BUNDLE_IDENTIFIER = com.DavidThurman.DailyTrivia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -405,10 +442,12 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Trivia Game/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.DavidThurman.Trivia-Game";
+				PRODUCT_BUNDLE_IDENTIFIER = com.DavidThurman.DailyTrivia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

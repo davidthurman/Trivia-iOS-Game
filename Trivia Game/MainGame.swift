@@ -9,9 +9,11 @@
 
 import UIKit
 import Alamofire
+import AVFoundation
 
 class MainGame: UIViewController {
     
+    @IBOutlet var previousResultLabel: UILabel!
     @IBOutlet var questionLabel: UILabel!
     
     var score: Int = 0
@@ -34,14 +36,23 @@ class MainGame: UIViewController {
     
     var index = 0
     
+    var player: AVAudioPlayer?
+    
+    @IBOutlet var soundImage: UIImageView!
+    var sound: Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        soundImage.isUserInteractionEnabled = true
+        soundImage.addGestureRecognizer(tapGestureRecognizer)
+        
         buttons.append(answer1Button)
         buttons.append(answer2Button)
         buttons.append(answer3Button)
         buttons.append(answer4Button)
         fetchQuestions()
-        answer1Button.setTitle("Test", for: .normal)
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,11 +60,32 @@ class MainGame: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "mainMenuSegue") {
+            
+            if let startScreenVC: StartScreen = segue.destination as? StartScreen {
+                startScreenVC.numOfQuestions = amount
+                startScreenVC.category = category
+                startScreenVC.difficulty = difficulty
+            }
+            
+        }
+    }
+    
     func fetchQuestions(){
+        for x in 0...3 {
+            buttons[x].isHidden = true
+        }
         SwiftSpinner.show("Fetching Questions...")
         print("https://opentdb.com/api.php?" + amount +  category + difficulty)
+        var success = false
         Alamofire.request("https://opentdb.com/api.php?" + amount +  category + difficulty).responseJSON { response in
-            if let results = response.result.value {
+            if response.response == nil {
+                SwiftSpinner.hide()
+                self.noInternet()
+            }
+            else if let results = response.result.value {
+                success = true
                 let json = JSON(results)
                 for result in json["results"] {
                     let question = Question(question: result.1.rawDictionary["question"] as! String, correctAnswer: result.1.rawDictionary["correct_answer"] as! String, incorrectAnswers: result.1.rawDictionary["incorrect_answers"] as! [String], type: result.1.rawDictionary["type"] as! String)
@@ -61,17 +93,42 @@ class MainGame: UIViewController {
                 }
                 self.populateQuestion()
             }
+            SwiftSpinner.hide()
         }
-        SwiftSpinner.hide()
+        
+    }
+    
+    func noInternet(){
+        let alertController = UIAlertController(title: title, message: "No internet connection", preferredStyle: .alert)
+        let returnAction = UIAlertAction(title: "Return", style: .default) {
+            (result : UIAlertAction) -> Void in
+            self.performSegue(withIdentifier: "mainMenuSegue", sender: nil)
+        }
+        let playAgainAction = UIAlertAction(title: "Try Again", style: .default) {
+            (result : UIAlertAction) -> Void in
+            self.reset()
+            self.fetchQuestions()
+        }
+        alertController.addAction(returnAction)
+        alertController.addAction(playAgainAction)
+        DispatchQueue.main.async(execute: {
+            self.present(alertController, animated: true, completion: nil)
+        })
     }
     
     func populateQuestion(){
+        for x in 0...3 {
+            buttons[x].isHidden = false
+        }
         if index < questions.count {
             questions[index].question = formatStrings(myString: questions[index].question)
             questionLabel.text = questions[index].question
             
             
             if (questions[index].type == "multiple"){
+                
+                buttons[2].isHidden = false
+                buttons[3].isHidden = false
                 
                 var randomInt: Int = Int(arc4random_uniform(4))
                 questions[index].correctAnswer = formatStrings(myString: questions[index].correctAnswer)
@@ -88,13 +145,27 @@ class MainGame: UIViewController {
                 }
             }
             else if (questions[index].type == "boolean"){
+                buttons[2].isHidden = true
+                buttons[3].isHidden = true
+                
+                var randomInt: Int = Int(arc4random_uniform(2))
+                questions[index].correctAnswer = formatStrings(myString: questions[index].correctAnswer)
+                buttons[randomInt].setTitle(questions[index].correctAnswer, for: .normal)
+                correctButton = randomInt
+                
+                var incorrectAnswersIndex = 0
+                for count in 0...1 {
+                    if count != randomInt {
+                        questions[index].incorrectAnswers[incorrectAnswersIndex] = formatStrings(myString: questions[index].incorrectAnswers[incorrectAnswersIndex])
+                        buttons[count].setTitle(questions[index].incorrectAnswers[incorrectAnswersIndex], for: .normal)
+                        incorrectAnswersIndex = incorrectAnswersIndex + 1
+                    }
+                }
                 
             }
-            
-            index = index + 1
         }
         else {
-            let alertController = UIAlertController(title: title, message: "Final Score: " + String(score), preferredStyle: .alert)
+            let alertController = UIAlertController(title: title, message: "Final Score: " + "Score: " + String(Int((Double(score)/Double(index + 1)) * 100)) + "%", preferredStyle: .alert)
             let returnAction = UIAlertAction(title: "Return", style: .default) {
                 (result : UIAlertAction) -> Void in
                 self.performSegue(withIdentifier: "mainMenuSegue", sender: nil)
@@ -130,13 +201,24 @@ class MainGame: UIViewController {
     
     func checkAnswer(buttonSender: Int){
         if buttonSender == correctButton {
+            correctSound()
             score = score + 1
-            scoreLabel.text = "Score: " + String(score)
-            scoreLabel.textColor = UIColor.green
+            previousResultLabel.text = "Correct! Answer was " + questions[index].correctAnswer
+            previousResultLabel.textColor = UIColor.init(colorLiteralRed: 0, green: 0.600, blue: 0.200, alpha: 1.0)
+            print(index)
+            print(questions.count)
+            print(Double(score)/Double(questions.count))
+            print("Score: " + String((score/questions.count) * 100))
+            scoreLabel.text = "Score: " + String(Int((Double(score)/Double(index + 1)) * 100)) + "%"
         }
         else {
-            scoreLabel.textColor = UIColor.red
+            incorrectSound()
+            previousResultLabel.text = "Incorrect! Answer was " + questions[index].correctAnswer
+            previousResultLabel.textColor = UIColor.init(colorLiteralRed: 0.737, green: 0.255, blue: 0.157, alpha: 1.0)
+            print(index)
+            scoreLabel.text = "Score: " + String(Int((Double(score)/Double(index + 1)) * 100)) + "%"
         }
+        index = index + 1
         populateQuestion()
     }
     
@@ -144,14 +226,67 @@ class MainGame: UIViewController {
         index = 0
         score = 0
         questions = []
+        previousResultLabel.text = ""
     }
     
     func formatStrings(myString: String) -> String{
         var newString = myString.replacingOccurrences(of: "&#039;", with: "'")
-        newString = myString.replacingOccurrences(of: "&amp;", with: "&")
-        newString = myString.replacingOccurrences(of: "&quot;", with: "\"")
-        newString = myString.replacingOccurrences(of: "&rsquo;", with: "'")
+        newString = newString.replacingOccurrences(of: "&amp;", with: "&")
+        newString = newString.replacingOccurrences(of: "&quot;", with: "\"")
+        newString = newString.replacingOccurrences(of: "&rsquo;", with: "'")
+        newString = newString.replacingOccurrences(of: "&ldquo;", with: "\"")
+        newString = newString.replacingOccurrences(of: "&ouml;", with: "ö")
+        newString = newString.replacingOccurrences(of: "&Ouml;", with: "Ö")
+        newString = newString.replacingOccurrences(of: "&auml;", with: "ä")
+        newString = newString.replacingOccurrences(of: "&Auml;", with: "Ä")
+        newString = newString.replacingOccurrences(of: "&eacute;", with: "é")
+        newString = newString.replacingOccurrences(of: "&Eacute;", with: "É")
+        newString = newString.replacingOccurrences(of: "&rdquo;", with: "\"")
         return newString
+    }
+    
+    func correctSound() {
+        if sound {
+            let url = Bundle.main.url(forResource: "correct_sound", withExtension: "mp3")!
+            
+            do {
+                player = try AVAudioPlayer(contentsOf: url)
+                guard let player = player else { return }
+                
+                player.prepareToPlay()
+                player.play()
+            } catch let error as NSError {
+                print(error.description)
+            }
+        }
+    }
+    
+    func incorrectSound() {
+        if sound {
+            let url = Bundle.main.url(forResource: "incorrect_sound", withExtension: "mp3")!
+            
+            do {
+                player = try AVAudioPlayer(contentsOf: url)
+                guard let player = player else { return }
+                
+                player.prepareToPlay()
+                player.play()
+            } catch let error as NSError {
+                print(error.description)
+            }
+        }
+    }
+    
+    func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        if sound {
+            soundImage.image = UIImage(named:"muted.png")
+            sound = false
+        }
+        else {
+            soundImage.image = UIImage(named:"sound.png")
+            sound = true
+        }
     }
     
 }
