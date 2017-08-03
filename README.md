@@ -7,6 +7,7 @@
 ![Platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)
 
 ------
+<img src="https://i.imgur.com/opgAqQ5.png" width="200">
 ![alt_tag](https://i.imgur.com/opgAqQ5.png)
 
 ## Chose from 24 Categories! 
