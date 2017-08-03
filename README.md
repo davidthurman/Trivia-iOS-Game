@@ -7,13 +7,12 @@
 ![Platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)
 
 ------
-<img src="https://i.imgur.com/opgAqQ5.png" width="200">
-![alt_tag](https://i.imgur.com/opgAqQ5.png)
+<img src="https://i.imgur.com/opgAqQ5.png" width="300">
 
 ## Chose from 24 Categories! 
 
-![alt_tag](https://i.imgur.com/Jn7NgiL.png)
+<img src="https://i.imgur.com/Jn7NgiL.png" width="300">
 
 ## Questions Updated Daily!
 
-![alt_tag](https://i.imgur.com/XUGXawj.png)
+<img src="https://i.imgur.com/XUGXawj.png" width="300">
